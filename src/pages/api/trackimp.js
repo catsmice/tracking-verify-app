@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 export default function handler(req, res) {
     const { query } = req;
     global.log = global.log || [];
