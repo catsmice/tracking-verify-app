@@ -1,6 +1,11 @@
 export const runtime = 'edge';
 
-export default function handler(req, res) {
-    res.status(200).json({ logs: global.log || [] });
+export default async function handler(req) {
+  const logs = global.log || [];
+  return new Response(JSON.stringify({ logs }), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 }
-  
