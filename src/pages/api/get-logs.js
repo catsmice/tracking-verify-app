@@ -11,7 +11,7 @@ export default async function handler(req) {
   return new Response(JSON.stringify({ logs: global.log }), {
     status: 200,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
   });
 }
