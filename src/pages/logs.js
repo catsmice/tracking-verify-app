@@ -15,7 +15,7 @@ const Logs = () => {
 
   return (
     <div>
-      <h1>Tracking Logs</h1>
+      <h1>Tracking Logs in pages</h1>
       <ul>
         {logs.map((log, index) => (
           <li key={index}>
