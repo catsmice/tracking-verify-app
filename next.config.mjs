@@ -8,6 +8,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+// const nextConfig = {};
+const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/visit.jpg',
+        destination: '/api/visit',
+      },
+    ];
+  },
+};
 
 export default nextConfig;
