@@ -1,19 +1,19 @@
-import { promises as fs } from 'fs';
-
 export const runtime = 'edge';
+
+const base64Image = 'R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 
 export default async function handler(req) {
   const { query } = req;
   global.log = global.log || [];
   global.log.push({ type: 'visit', query });
 
-  const filePath = path.resolve('.', 'public/1x1-pixel.jpg');
-  const fileBuffer = await fs.readFile(filePath);
+  const imageBuffer = Buffer.from(base64Image, 'base64');
 
-  return new Response(fileBuffer, {
+  return new Response(imageBuffer, {
     status: 200,
     headers: {
-      'Content-Type': 'image/jpeg',
+      'Content-Type': 'image/gif',
+      'Content-Length': imageBuffer.length,
     },
   });
 }
